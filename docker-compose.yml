@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  qtcreator:
+    image: qtcreator:latest
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTH_DPYNAME=${XAUTH_DPYNAME}
+      - XAUTH_PROTONAME=${XAUTH_PROTONAME}
+      - XAUTH_HEXKEY=${XAUTH_HEXKEY}
+      - SAFEDIR=/opt
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./config:/root/.config
+    network_mode: host

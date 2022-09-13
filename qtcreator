@@ -1,0 +1,11 @@
+#/bin/bash
+
+XAUTH_LIST=$(xauth list)
+export XAUTH_DPYNAME=$(echo $XAUTH_LIST | cut -d ' ' -f 1)
+export XAUTH_PROTONAME=$(echo $XAUTH_LIST | cut -d ' ' -f 2)
+export XAUTH_HEXKEY=$(echo $XAUTH_LIST | cut -d ' ' -f 3)
+
+CMD="up -d"
+[ "$1" = "down" ] && CMD="down"
+
+docker-compose $CMD
