@@ -14,3 +14,5 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./config:/root/.config
     network_mode: host
+    mem_limit: 6G
+    mem_reservation: 2G
